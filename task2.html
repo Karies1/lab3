@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2 — Вертикальное меню с двойной вложенностью</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #f0ebe3;
+            padding: 40px;
+            color: #2c2c2c;
+        }
+
+        h1 {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* ===== Вертикальное меню ===== */
+        .vmenu {
+            width: 200px;
+            background: #2c2c2c;
+            font-family: 'Georgia', serif;
+            list-style: none;
+        }
+
+        /* Пункты первого уровня */
+        .vmenu > li {
+            position: relative;
+        }
+
+        .vmenu > li > a {
+            display: block;
+            text-decoration: none;
+            color: #f0ebe3;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 16px;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .vmenu > li > a:hover {
+            background: #c8a96e;
+            color: #2c2c2c;
+        }
+
+        /* Стрелка у пунктов с подменю */
+        .vmenu .has-sub > a::after {
+            content: ' ›';
+            float: right;
+            color: #c8a96e;
+        }
+
+        .vmenu .has-sub > a:hover::after {
+            color: #2c2c2c;
+        }
+
+        /* ===== Подменю 1-го уровня ===== */
+        .vmenu .sub1 {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: #3a3a3a;
+            width: 190px;
+            list-style: none;
+            z-index: 100;
+        }
+
+        .vmenu > li:hover > .sub1 {
+            display: block;
+        }
+
+        .vmenu .sub1 > li {
+            position: relative;
+        }
+
+        .vmenu .sub1 > li > a {
+            display: block;
+            text-decoration: none;
+            color: #f0ebe3;
+            font-size: 12px;
+            padding: 10px 16px;
+            border-bottom: 1px solid #444;
+            letter-spacing: 0.5px;
+        }
+
+        .vmenu .sub1 > li > a:hover {
+            background: #c8a96e;
+            color: #2c2c2c;
+        }
+
+        .vmenu .sub1 .has-sub > a::after {
+            content: ' ›';
+            float: right;
+            color: #c8a96e;
+        }
+
+        .vmenu .sub1 .has-sub > a:hover::after {
+            color: #2c2c2c;
+        }
+
+        /* ===== Подменю 2-го уровня ===== */
+        .vmenu .sub2 {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: #4a4a4a;
+            width: 190px;
+            list-style: none;
+            z-index: 200;
+        }
+
+        .vmenu .sub1 > li:hover > .sub2 {
+            display: block;
+        }
+
+        .vmenu .sub2 > li > a {
+            display: block;
+            text-decoration: none;
+            color: #f0ebe3;
+            font-size: 12px;
+            padding: 10px 16px;
+            border-bottom: 1px solid #555;
+        }
+
+        .vmenu .sub2 > li > a:hover {
+            background: #c8a96e;
+            color: #2c2c2c;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Задание 2 — Вертикальное меню с двойной вложенностью</h1>
+
+<ul class="vmenu">
+    <li><a href="#">Главная</a></li>
+
+    <li class="has-sub">
+        <a href="#">Коллекции</a>
+        <ul class="sub1">
+            <li class="has-sub">
+                <a href="#">2024 год</a>
+                <ul class="sub2">
+                    <li><a href="#">Зима</a></li>
+                    <li><a href="#">Весна</a></li>
+                    <li><a href="#">Лето</a></li>
+                    <li><a href="#">Осень</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="#">2023 год</a>
+                <ul class="sub2">
+                    <li><a href="#">Зима</a></li>
+                    <li><a href="#">Лето</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Архив</a></li>
+        </ul>
+    </li>
+
+    <li class="has-sub">
+        <a href="#">Услуги</a>
+        <ul class="sub1">
+            <li class="has-sub">
+                <a href="#">Дизайн</a>
+                <ul class="sub2">
+                    <li><a href="#">Интерьер</a></li>
+                    <li><a href="#">Экстерьер</a></li>
+                    <li><a href="#">Ландшафт</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Консультация</a></li>
+            <li><a href="#">Авторский надзор</a></li>
+        </ul>
+    </li>
+
+    <li class="has-sub">
+        <a href="#">О компании</a>
+        <ul class="sub1">
+            <li><a href="#">История</a></li>
+            <li><a href="#">Команда</a></li>
+            <li><a href="#">Награды</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Портфолио</a></li>
+    <li><a href="#">Контакты</a></li>
+</ul>
+
+</body>
+</html>

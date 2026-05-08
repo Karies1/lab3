@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1 — Трёхколоночный макет</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #b8d0e4;
+            font-size: 13px;
+            color: #000;
+        }
+
+        /* ===== ШАПКА ===== */
+        .header {
+            background: #fff;
+            text-align: center;
+            padding: 10px 0 8px;
+        }
+
+        .header h1 {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 44px;
+            color: red;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        /* ===== ГОРИЗОНТАЛЬНОЕ МЕНЮ ===== */
+        .nav-top {
+            background: #ccdce8;
+            border-top: 2px solid #999;
+            border-bottom: 2px solid #999;
+            padding: 4px 0;
+            overflow: hidden;
+        }
+
+        .nav-top a {
+            display: block;
+            float: left;
+            text-decoration: none;
+            color: #000;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            padding: 6px 20px;
+            border: 1px solid #999;
+            background: #dce8f0;
+            margin-left: 6px;
+        }
+
+        .nav-top a:hover {
+            background: #aac4d8;
+        }
+
+        /* ===== ТРИ КОЛОНКИ =====
+           Порядок в HTML: left → right → center  */
+
+        .col-left {
+            float: left;
+            width: 145px;
+            background: #cce0f0;
+            border: 1px solid #88aacc;
+            margin: 8px 0 8px 8px;
+            min-height: 430px;
+        }
+
+        .col-right {
+            float: right;
+            width: 155px;
+            background: #cce0f0;
+            border: 1px solid #88aacc;
+            margin: 8px 8px 8px 0;
+            min-height: 430px;
+        }
+
+        /* Центр — обычный блок, НЕ плавающий, overflow: hidden */
+        .col-center {
+            overflow: hidden;
+            background: #daeaf8;
+            margin: 8px;
+            min-height: 430px;
+            border: 1px solid #88aacc;
+            padding: 10px;
+        }
+
+        /* ===== ЗАГОЛОВКИ БЛОКОВ ===== */
+        .block-title {
+            background: #4488bb;
+            color: #fff;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 4px 8px;
+        }
+
+        /* ===== ЛЕВАЯ КОЛОНКА ===== */
+        .col-left .block-title {
+            margin-bottom: 6px;
+        }
+
+        .col-left p {
+            font-size: 12px;
+            padding: 0 7px;
+            line-height: 1.55;
+            color: #111;
+        }
+
+        /* ===== ПРАВАЯ КОЛОНКА ===== */
+        .contact-info {
+            font-size: 12px;
+            padding: 5px 8px 10px;
+            line-height: 1.7;
+        }
+
+        .services-list {
+            font-size: 12px;
+            padding: 5px 8px 5px 22px;
+            line-height: 2;
+        }
+
+        /* ===== ЦЕНТР — ИКОНКИ ===== */
+        .icon-row {
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        /* Обёртка каждой иконки — для tooltip */
+        .icon-wrap {
+            position: relative;
+            float: left;
+            width: 88px;
+            height: 88px;
+            margin: 4px;
+            cursor: default;
+        }
+
+        /* Иконка-картинка */
+        .icon-wrap img {
+            width: 88px;
+            height: 88px;
+            display: block;
+            border: 2px solid #aacce0;
+        }
+
+        /* Всплывающая подсказка при наведении */
+        .icon-wrap .tooltip {
+            display: none;
+            position: absolute;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 1px solid #666;
+            color: #000;
+            font-size: 12px;
+            padding: 1px 7px;
+            white-space: nowrap;
+            z-index: 99;
+        }
+
+        .icon-wrap:hover .tooltip {
+            display: block;
+        }
+
+        .icon-wrap:hover img {
+            border-color: #3366aa;
+            box-shadow: 0 0 5px rgba(0,60,140,0.35);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Шапка -->
+<div class="header">
+    <h1>INSTRUCTIONAL DESIGN</h1>
+</div>
+
+<!-- Горизонтальное меню -->
+<div class="nav-top">
+    <a href="#">ГЛАВНАЯ</a>
+    <a href="#">ОТДЕЛЫ ПРОДАЖ</a>
+    <a href="#">ПОСТАВЩИКИ</a>
+    <a href="#">КОНТАКТЫ</a>
+    <a href="#">О НАС</a>
+</div>
+
+<!-- ===== КОЛОНКИ: LEFT → RIGHT → CENTER ===== -->
+
+<!-- ЛЕВАЯ колонка -->
+<div class="col-left">
+    <div class="block-title">Новости</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste accusamus rerum omnis adipisci corporis est possimus dolor sit vero, cumque incidunt exercitationem quibusdam reprehenderit harum asperiores. Qui natus voluptatem optio!</p>
+</div>
+
+<!-- ПРАВАЯ колонка -->
+<div class="col-right">
+    <div class="block-title">Контакты</div>
+    <div class="contact-info">
+        <b>Адрес:</b> г. Москва, ул. Академика Королева 12<br>
+        <b>Телефон:</b> 8-999-999-99-99
+    </div>
+
+    <div class="block-title">Услуги</div>
+    <ul class="services-list">
+        <li>Разработка дизайна</li>
+        <li>Разработка web-приложений</li>
+        <li>Разработка web-сервисов</li>
+    </ul>
+</div>
+
+<!-- ЦЕНТРАЛЬНАЯ колонка (обычный блок, overflow: hidden) -->
+<div class="col-center">
+
+    <!-- Строка 1: 5 иконок -->
+    <div class="icon-row">
+        <div class="icon-wrap">
+            <img src="img/flickr.png" alt="Flickr">
+            <div class="tooltip">Flickr</div>
+        </div>
+        <div class="icon-wrap">
+            <img src="img/rss.png" alt="RSS">
+            <div class="tooltip">RSS</div>
+        </div>
+        <div class="icon-wrap">
+            <img src="img/twitter.png" alt="Twitter">
+            <div class="tooltip">Twitter</div>
+        </div>
+        <div class="icon-wrap">
+            <img src="img/linkedin.png" alt="LinkedIn">
+            <div class="tooltip">LinkedIn</div>
+        </div>
+        <div class="icon-wrap">
+            <img src="img/flickr.png" alt="Flickr">
+            <div class="tooltip">Flickr</div>
+        </div>
+    </div>
+
+    <!-- Строка 2: 3 иконки -->
+    <div class="icon-row">
+        <div class="icon-wrap">
+            <img src="img/rss.png" alt="RSS">
+            <div class="tooltip">RSS</div>
+        </div>
+        <div class="icon-wrap">
+            <img src="img/twitter.png" alt="Twitter">
+            <div class="tooltip">Twitter</div>
+        </div>
+        <div class="icon-wrap">
+            <img src="img/linkedin.png" alt="LinkedIn">
+            <div class="tooltip">LinkedIn</div>
+        </div>
+    </div>
+
+</div><!-- /col-center -->
+
+</body>
+</html>

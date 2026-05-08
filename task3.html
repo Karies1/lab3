@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3 — Вертикальное меню-аккордеон</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #f0ebe3;
+            padding: 40px;
+            color: #2c2c2c;
+        }
+
+        h1 {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* ===== Аккордеон-меню (pure CSS, без JS) ===== */
+        /* Принцип: скрытый <input type="checkbox"> + <label> как кнопка.
+           При клике на label чекбокс переключается, а через ~ выбираем .sub */
+
+        .vmenu3 {
+            width: 200px;
+            background: #2c2c2c;
+            font-family: 'Georgia', serif;
+            list-style: none;
+        }
+
+        .vmenu3 li {
+            list-style: none;
+        }
+
+        /* Скрываем чекбоксы */
+        .vmenu3 input[type="checkbox"] {
+            display: none;
+        }
+
+        /* Обычные ссылки (без подменю) */
+        .vmenu3 > li > a {
+            display: block;
+            text-decoration: none;
+            color: #f0ebe3;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 16px;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .vmenu3 > li > a:hover {
+            background: #c8a96e;
+            color: #2c2c2c;
+        }
+
+        /* Label — кнопка для пунктов с подменю */
+        .vmenu3 label {
+            display: block;
+            color: #f0ebe3;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 16px;
+            border-bottom: 1px solid #3a3a3a;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .vmenu3 label::after {
+            content: '+';
+            float: right;
+            color: #c8a96e;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .vmenu3 label:hover {
+            background: #c8a96e;
+            color: #2c2c2c;
+        }
+
+        .vmenu3 label:hover::after {
+            color: #2c2c2c;
+        }
+
+        /* Когда чекбокс отмечен — меняем знак на минус */
+        .vmenu3 input:checked + label {
+            background: #c8a96e;
+            color: #2c2c2c;
+        }
+
+        .vmenu3 input:checked + label::after {
+            content: '−';
+            color: #2c2c2c;
+        }
+
+        /* Подменю — скрыто по умолчанию */
+        .vmenu3 .sub {
+            display: none;
+            list-style: none;
+            background: #3a3a3a;
+        }
+
+        /* Показываем когда чекбокс отмечен */
+        .vmenu3 input:checked ~ .sub {
+            display: block;
+        }
+
+        /* Пункты подменю */
+        .vmenu3 .sub li a {
+            display: block;
+            text-decoration: none;
+            color: #ccc;
+            font-size: 12px;
+            padding: 9px 16px 9px 30px;
+            border-bottom: 1px solid #444;
+        }
+
+        .vmenu3 .sub li a:hover {
+            background: #555;
+            color: #f0ebe3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Задание 3 — Вертикальное меню-аккордеон (pure CSS)</h1>
+
+<ul class="vmenu3">
+    <li><a href="#">Главная</a></li>
+
+    <li>
+        <input type="checkbox" id="m1">
+        <label for="m1">Коллекции</label>
+        <ul class="sub">
+            <li><a href="#">Зима 2024</a></li>
+            <li><a href="#">Весна 2024</a></li>
+            <li><a href="#">Лето 2024</a></li>
+            <li><a href="#">Осень 2024</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <input type="checkbox" id="m2">
+        <label for="m2">Услуги</label>
+        <ul class="sub">
+            <li><a href="#">Дизайн интерьера</a></li>
+            <li><a href="#">Ландшафт</a></li>
+            <li><a href="#">Консультация</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <input type="checkbox" id="m3">
+        <label for="m3">О компании</label>
+        <ul class="sub">
+            <li><a href="#">История</a></li>
+            <li><a href="#">Команда</a></li>
+            <li><a href="#">Награды</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Портфолио</a></li>
+    <li><a href="#">Контакты</a></li>
+</ul>
+
+</body>
+</html>
